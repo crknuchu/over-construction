@@ -7,7 +7,13 @@ func _ready():
 @export var WALK_SPEED = 200
 @export var JUMP = 200
 
+@onready var mouse_point = $Point
+
+
 func _physics_process(delta):
+	mouse_point.global_position = get_global_mouse_position()
+	#print(mouse_point.global_position)
+	
 	velocity.y += delta * GRAVITY
 
 	if Input.is_action_just_pressed("jump"):
@@ -20,6 +26,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = 0
 	
+	
 
 	move_and_slide()
 	
+

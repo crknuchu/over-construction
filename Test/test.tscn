@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2gvwjxc4p46c"]
+[gd_scene load_steps=4 format=3 uid="uid://c2gvwjxc4p46c"]
 
 [ext_resource type="PackedScene" uid="uid://c4vgtsre8spcb" path="res://Test/metal_1x_4.tscn" id="1_4jwmx"]
 [ext_resource type="PackedScene" uid="uid://lp3h0cyulcxu" path="res://Test/player.tscn" id="2_avk5t"]
+[ext_resource type="PackedScene" uid="uid://d004l0xyah20f" path="res://movable/metal_1x_4.tscn" id="3_idxnj"]
 
 [node name="test" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_avk5t")]
+position = Vector2(7, -36)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="metal 1x4" parent="." instance=ExtResource("1_4jwmx")]
 position = Vector2(-2, 53)
+
+[node name="metal 1x5" parent="." instance=ExtResource("3_idxnj")]
+position = Vector2(-171, -69)

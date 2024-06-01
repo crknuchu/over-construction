@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://lp3h0cyulcxu"]
+[gd_scene load_steps=5 format=3 uid="uid://lp3h0cyulcxu"]
 
 [ext_resource type="Texture2D" uid="uid://darmgonp7f3hc" path="res://icon.svg" id="1_e8iyb"]
 [ext_resource type="Script" path="res://Test/player.gd" id="1_jmmsk"]
-[ext_resource type="Script" path="res://Test/Point.gd" id="3_4pqak"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_os73o"]
 
@@ -10,18 +9,19 @@
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_jmmsk")
+GRAVITY = null
+WALK_SPEED = null
+JUMP = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3, 3)
 shape = SubResource("CapsuleShape2D_os73o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3.8147e-06, -1)
-scale = Vector2(0.455, 0.71875)
+scale = Vector2(0.203125, 0.203125)
 texture = ExtResource("1_e8iyb")
 
 [node name="Point" type="Area2D" parent="."]
-script = ExtResource("3_4pqak")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Point"]
 shape = SubResource("CircleShape2D_x5ftw")
