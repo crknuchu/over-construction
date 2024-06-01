@@ -30,4 +30,5 @@ func _physics_process(_delta):
 					duplicate = picked_up_item.duplicate()
 					player.get_parent().add_child(duplicate)
 					duplicate.sprite_2d.self_modulate.a = 0.5
-
+					duplicate.box.visible = false
+					duplicate.sprite_2d.visible = true

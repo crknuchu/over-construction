@@ -4,8 +4,6 @@
 
 [node name="Generator" type="Node2D"]
 script = ExtResource("1_3ele1")
-wait_time = 5.0
-_t = 5.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

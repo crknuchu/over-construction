@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://fvlwl6mje6b1" path="res://static/metal_1x_4.tscn" id="1_4jwmx"]
 [ext_resource type="PackedScene" uid="uid://lp3h0cyulcxu" path="res://Test/player.tscn" id="2_avk5t"]
 [ext_resource type="Script" path="res://Test/Camera2D.gd" id="2_kjn43"]
-[ext_resource type="PackedScene" uid="uid://d004l0xyah20f" path="res://movable/metal_1x_4.tscn" id="3_idxnj"]
 [ext_resource type="PackedScene" uid="uid://7w2cjf7qf8bd" path="res://static/generator.tscn" id="5_slx1j"]
+[ext_resource type="PackedScene" uid="uid://cfp40r5a0ki3x" path="res://movable/movable.tscn" id="6_kjvva"]
 
 [node name="test" type="Node2D"]
 
@@ -20,8 +20,8 @@ script = ExtResource("2_kjn43")
 [node name="metal 1x4" parent="." instance=ExtResource("1_4jwmx")]
 position = Vector2(-2, 53)
 
-[node name="metal 1x5" parent="." instance=ExtResource("3_idxnj")]
-position = Vector2(-171, -69)
-
 [node name="Generator" parent="." instance=ExtResource("5_slx1j")]
 position = Vector2(422.377, -129.763)
+
+[node name="movable" parent="." instance=ExtResource("6_kjvva")]
+position = Vector2(-298, -73)
