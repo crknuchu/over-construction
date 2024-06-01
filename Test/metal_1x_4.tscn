@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4vgtsre8spcb"]
+
+[ext_resource type="Texture2D" uid="uid://cbmf07tnie8bu" path="res://sprites/Platfom_Metal_1x4.png" id="1_kpyxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwjqj"]
+size = Vector2(252, 59)
+
+[node name="metal 1x4" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_qwjqj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kpyxy")
