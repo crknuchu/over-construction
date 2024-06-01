@@ -12,11 +12,10 @@ func _ready():
 
 func _physics_process(delta):
 	mouse_point.global_position = get_global_mouse_position()
-	#print(mouse_point.global_position)
 	
 	velocity.y += delta * GRAVITY
 
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -JUMP
 
 	if Input.is_action_pressed("left"):
