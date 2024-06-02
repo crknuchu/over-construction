@@ -8,6 +8,7 @@ func _ready():
 @export var WALK_SPEED = 200
 @export var JUMP = 200
 @onready var score = $"Score System/score"
+@onready var jump_sound = $Jump
 
 @onready var mouse_point = $Point
 @onready var animation_player = $AnimationPlayer
@@ -48,9 +49,13 @@ func _physics_process(delta):
 	elif can_jump == true and coyote_timer.is_stopped():
 			coyote_timer.start(coyote_time)
 
+	var r = randi_range(0,10)
+
 	if can_jump:
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = -JUMP
+			if r == 5:
+				jump_sound.play()
 		
 	if Input.is_action_pressed("left"):
 		velocity.x = -WALK_SPEED

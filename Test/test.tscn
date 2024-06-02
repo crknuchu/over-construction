@@ -1,8 +1,9 @@
-[gd_scene load_steps=54 format=3 uid="uid://c2gvwjxc4p46c"]
+[gd_scene load_steps=55 format=3 uid="uid://c2gvwjxc4p46c"]
 
 [ext_resource type="PackedScene" uid="uid://fvlwl6mje6b1" path="res://static/metal_1x_4.tscn" id="1_4jwmx"]
 [ext_resource type="PackedScene" uid="uid://lp3h0cyulcxu" path="res://Test/player.tscn" id="2_avk5t"]
 [ext_resource type="Script" path="res://Test/Camera2D.gd" id="2_kjn43"]
+[ext_resource type="AudioStream" uid="uid://bxsmyna6gwtkn" path="res://SFX/JumpVOX_01.wav" id="3_kmv3k"]
 [ext_resource type="Script" path="res://Test/killbox.gd" id="5_0lm62"]
 [ext_resource type="PackedScene" uid="uid://7w2cjf7qf8bd" path="res://static/generator.tscn" id="5_slx1j"]
 [ext_resource type="PackedScene" uid="uid://cfp40r5a0ki3x" path="res://movable/movable.tscn" id="6_kjvva"]
@@ -285,6 +286,9 @@ text = "SCORE:"
 label_settings = SubResource("LabelSettings_2mkku")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("3_kmv3k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_kjn43")

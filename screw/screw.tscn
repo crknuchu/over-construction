@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://dlnnwpwfsg70s"]
+[gd_scene load_steps=38 format=3 uid="uid://dlnnwpwfsg70s"]
 
 [ext_resource type="Script" path="res://screw/screw.gd" id="1_3gd3p"]
 [ext_resource type="Texture2D" uid="uid://darmgonp7f3hc" path="res://icon.svg" id="1_xyabm"]
 [ext_resource type="Texture2D" uid="uid://d0gvtkqkv6f5u" path="res://screw/Screw_31_Ferames.png" id="3_xlndi"]
+[ext_resource type="AudioStream" uid="uid://d2m2iiabjk3ly" path="res://SFX/PickUp_01.wav" id="4_xiogw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b75wq"]
 size = Vector2(77, 81)
@@ -248,3 +249,7 @@ position = Vector2(4, 2)
 scale = Vector2(0.3325, 0.3325)
 sprite_frames = SubResource("SpriteFrames_u87tu")
 frame_progress = 0.0691941
+
+[node name="SCREW" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xiogw")
+volume_db = 11.356
