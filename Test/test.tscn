@@ -70,7 +70,7 @@ one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
 z_index = -100
-position = Vector2(191, 151)
+position = Vector2(56, 57)
 scale = Vector2(1.85315, 1.85315)
 texture = ExtResource("7_seg4c")
 

@@ -19,6 +19,10 @@ func _ready():
 @onready var score_val = 0
 @onready var add_to_score = false
 @onready var t = 5
+@onready var coyote_timer = $CoyoteTimer
+
+var coyote_time = 0.1
+var can_jump = false
 
 func add_score():
 	score_val += 500
@@ -38,7 +42,12 @@ func _physics_process(delta):
 	
 	velocity.y += delta * GRAVITY
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if is_on_floor() and can_jump == false:
+		can_jump = true
+	elif can_jump == true and coyote_timer.is_stopped():
+			coyote_timer.start(coyote_time)
+
+	if Input.is_action_just_pressed("jump") and can_jump:
 		velocity.y = -JUMP
 		
 	if Input.is_action_pressed("left"):
@@ -72,3 +81,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 
+
+
+func _on_coyote_timer_timeout():
+	can_jump = false

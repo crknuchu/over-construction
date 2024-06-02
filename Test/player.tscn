@@ -229,3 +229,8 @@ scale = Vector2(0.279, 0.279)
 texture = ExtResource("8_duuin")
 hframes = 6
 vframes = 5
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
