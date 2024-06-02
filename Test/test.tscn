@@ -1,6 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://c2gvwjxc4p46c"]
+[gd_scene load_steps=56 format=3 uid="uid://c2gvwjxc4p46c"]
 
 [ext_resource type="PackedScene" uid="uid://fvlwl6mje6b1" path="res://static/metal_1x_4.tscn" id="1_4jwmx"]
+[ext_resource type="Script" path="res://Test/test.gd" id="1_s1rvd"]
 [ext_resource type="PackedScene" uid="uid://lp3h0cyulcxu" path="res://Test/player.tscn" id="2_avk5t"]
 [ext_resource type="Script" path="res://Test/Camera2D.gd" id="2_kjn43"]
 [ext_resource type="AudioStream" uid="uid://bxsmyna6gwtkn" path="res://SFX/JumpVOX_01.wav" id="3_kmv3k"]
@@ -255,6 +256,7 @@ animations = [{
 }]
 
 [node name="test" type="Node2D"]
+script = ExtResource("1_s1rvd")
 
 [node name="Player" parent="." instance=ExtResource("2_avk5t")]
 position = Vector2(-3, 27)
