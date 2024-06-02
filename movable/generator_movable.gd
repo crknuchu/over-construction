@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var timer = $Timer
 @onready var camera_2d = $"../Camera2D"
-@onready var metal_1x4 = load("res://movable/movable.tscn")
-@onready var blocks = [metal_1x4]
+@onready var mov1 = load("res://movable/movable.tscn")
+@onready var mov2 = load("res://movable/movable2.tscn")
+@onready var mov3 = load("res://movable/movable3.tscn")
+@onready var blocks = [mov1,mov2,mov3]
 
 func spawn_block():
 	var index = randf_range(0,blocks.size())
