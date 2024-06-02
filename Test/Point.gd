@@ -17,6 +17,8 @@ func _physics_process(_delta):
 			picked_up_item.reparent(player.get_parent())
 			carrying = false
 			duplicate.queue_free()
+			picked_up_item.scaffold.show()
+			picked_up_item.scaffold.play()
 	
 		for body in get_overlapping_bodies():
 			if body is Movable:

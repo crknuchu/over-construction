@@ -14,6 +14,7 @@ func _ready():
 @onready var idlesprite = $idlesprite
 @onready var runrightsprite = $runrightsprite
 @onready var jumpsprite = $jumpsprite
+@onready var runleftsprite = $runleftsprite
 
 
 func _physics_process(delta):
@@ -26,21 +27,32 @@ func _physics_process(delta):
 		
 	if Input.is_action_pressed("left"):
 		velocity.x = -WALK_SPEED
+		runleftsprite.show()
+		runrightsprite.hide()
+		animation_player.play("run_left")
+		idlesprite.hide()
+		jumpsprite.hide()
 		
 	elif Input.is_action_pressed("right"):
 		velocity.x =  WALK_SPEED
 		if is_on_floor():
 			runrightsprite.show()
+			runleftsprite.hide()
 			animation_player.play("run_right")
 			idlesprite.hide()
+			jumpsprite.hide()
 	else:
 		velocity.x = 0
 		if is_on_floor():
 			runrightsprite.hide()
+			runleftsprite.hide()
+			jumpsprite.hide()
 			idlesprite.show()
 			animation_player.play("idle")
 		
 	
+	
+
 	move_and_slide()
 	
 
