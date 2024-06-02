@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2gvwjxc4p46c"]
+[gd_scene load_steps=13 format=3 uid="uid://c2gvwjxc4p46c"]
 
 [ext_resource type="PackedScene" uid="uid://fvlwl6mje6b1" path="res://static/metal_1x_4.tscn" id="1_4jwmx"]
 [ext_resource type="PackedScene" uid="uid://lp3h0cyulcxu" path="res://Test/player.tscn" id="2_avk5t"]
 [ext_resource type="Script" path="res://Test/Camera2D.gd" id="2_kjn43"]
+[ext_resource type="Script" path="res://Test/killbox.gd" id="5_0lm62"]
 [ext_resource type="PackedScene" uid="uid://7w2cjf7qf8bd" path="res://static/generator.tscn" id="5_slx1j"]
 [ext_resource type="PackedScene" uid="uid://cfp40r5a0ki3x" path="res://movable/movable.tscn" id="6_kjvva"]
 [ext_resource type="PackedScene" uid="uid://lw0jfdv6u2tw" path="res://sprites/water.tscn" id="6_wlen3"]
@@ -10,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dq132epqdmlp6" path="res://movable/generator_movable.tscn" id="8_7suhd"]
 [ext_resource type="Texture2D" uid="uid://ckn5tyf5iir5i" path="res://sprites/Crane_Pale31_Frames.png" id="9_imf61"]
 [ext_resource type="Script" path="res://Test/Generator3.gd" id="9_jcecm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jwon"]
+size = Vector2(1196, 66)
 
 [node name="test" type="Node2D"]
 
@@ -24,7 +28,7 @@ script = ExtResource("2_kjn43")
 
 [node name="Water" parent="Camera2D" instance=ExtResource("6_wlen3")]
 z_index = 10
-position = Vector2(-2.00004, 276.5)
+position = Vector2(-2, 326)
 scale = Vector2(0.634375, 0.634375)
 
 [node name="Timer" type="Timer" parent="Camera2D"]
@@ -35,6 +39,16 @@ one_shot = true
 z_index = -100
 position = Vector2(0, 8)
 texture = ExtResource("7_seg4c")
+
+[node name="killbox" type="Area2D" parent="Camera2D"]
+script = ExtResource("5_0lm62")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/killbox"]
+position = Vector2(3, 332)
+shape = SubResource("RectangleShape2D_0jwon")
+
+[node name="Timer" type="Timer" parent="Camera2D/killbox"]
+one_shot = true
 
 [node name="metal 1x4" parent="." instance=ExtResource("1_4jwmx")]
 position = Vector2(-2, 53)
@@ -72,4 +86,5 @@ vframes = 6
 frame = 30
 
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Camera2D/killbox/Timer" to="Camera2D/killbox" method="_on_timer_timeout"]
 [connection signal="timeout" from="Generator3/Timer" to="Generator3" method="_on_timer_timeout"]
