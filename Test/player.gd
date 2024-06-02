@@ -47,8 +47,9 @@ func _physics_process(delta):
 	elif can_jump == true and coyote_timer.is_stopped():
 			coyote_timer.start(coyote_time)
 
-	if Input.is_action_just_pressed("jump") and can_jump:
-		velocity.y = -JUMP
+	if can_jump:
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = -JUMP
 		
 	if Input.is_action_pressed("left"):
 		velocity.x = -WALK_SPEED
@@ -79,9 +80,6 @@ func _physics_process(delta):
 			animation_player.play("idle")
 		
 	move_and_slide()
-	
-
-
 
 func _on_coyote_timer_timeout():
 	can_jump = false
