@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://dmj7cf6ixvb42"]
+[gd_scene load_steps=40 format=3 uid="uid://dmj7cf6ixvb42"]
 
 [ext_resource type="Script" path="res://movable/movable.gd" id="1_eytsn"]
 [ext_resource type="Texture2D" uid="uid://cs3nmap06xfc8" path="res://sprites/Box.png" id="2_6swo3"]
 [ext_resource type="Texture2D" uid="uid://cj08e52n52pqg" path="res://sprites/Platfom_Metal_1x1.png" id="3_q4ptc"]
 [ext_resource type="Texture2D" uid="uid://c3783b3qx2rm0" path="res://sprites/Crane_31_Frames.png" id="4_svphi"]
+[ext_resource type="Texture2D" uid="uid://lrrcl6ycttaa" path="res://sprites/Parashoot.png" id="5_e1b4w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m8oxg"]
 size = Vector2(64, 60)
@@ -243,6 +244,11 @@ GRAVITY = 20
 [node name="Box" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_6swo3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Box"]
+position = Vector2(10, -920)
+scale = Vector2(3.55469, 3.55469)
+texture = ExtResource("5_e1b4w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

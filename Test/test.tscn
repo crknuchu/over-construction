@@ -19,9 +19,10 @@ size = Vector2(1934, 96)
 
 [node name="Player" parent="." instance=ExtResource("2_avk5t")]
 position = Vector2(-3, 27)
-GRAVITY = 1200.0
-WALK_SPEED = 500
-JUMP = 700
+safe_margin = 1.0
+GRAVITY = 1950.0
+WALK_SPEED = 400
+JUMP = 900
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_kjn43")

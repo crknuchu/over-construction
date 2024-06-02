@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://r66xucubxdql"]
+[gd_scene load_steps=39 format=3 uid="uid://r66xucubxdql"]
 
 [ext_resource type="Script" path="res://movable/movable_poligon.gd" id="1_qtl2m"]
 [ext_resource type="Texture2D" uid="uid://cs3nmap06xfc8" path="res://sprites/Box.png" id="2_hgxcv"]
 [ext_resource type="Texture2D" uid="uid://0xyqtxyobaoh" path="res://sprites/C_1.png" id="3_62sm5"]
 [ext_resource type="Texture2D" uid="uid://c3783b3qx2rm0" path="res://sprites/Crane_31_Frames.png" id="4_y0usk"]
+[ext_resource type="Texture2D" uid="uid://lrrcl6ycttaa" path="res://sprites/Parashoot.png" id="5_en3ac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kfnh2"]
 atlas = ExtResource("4_y0usk")
@@ -239,6 +240,11 @@ script = ExtResource("1_qtl2m")
 [node name="Box" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_hgxcv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Box"]
+position = Vector2(10, -920)
+scale = Vector2(3.55469, 3.55469)
+texture = ExtResource("5_en3ac")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
