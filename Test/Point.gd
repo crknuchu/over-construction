@@ -21,7 +21,7 @@ func _physics_process(_delta):
 			picked_up_item.scaffold.play()
 	
 		for body in get_overlapping_bodies():
-			if body is Movable:
+			if body is Movable or body is Movable2:
 				if not body.picked_up:
 					carrying = true
 					picked_up_item = body
