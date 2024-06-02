@@ -9,6 +9,7 @@ size = Vector2(252, 60)
 
 [node name="movable" type="CharacterBody2D"]
 script = ExtResource("1_jaoup")
+GRAVITY = 20
 
 [node name="Box" type="Sprite2D" parent="."]
 scale = Vector2(0.1, 0.1)

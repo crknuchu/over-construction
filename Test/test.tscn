@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2gvwjxc4p46c"]
+[gd_scene load_steps=9 format=3 uid="uid://c2gvwjxc4p46c"]
 
 [ext_resource type="PackedScene" uid="uid://fvlwl6mje6b1" path="res://static/metal_1x_4.tscn" id="1_4jwmx"]
 [ext_resource type="PackedScene" uid="uid://lp3h0cyulcxu" path="res://Test/player.tscn" id="2_avk5t"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://7w2cjf7qf8bd" path="res://static/generator.tscn" id="5_slx1j"]
 [ext_resource type="PackedScene" uid="uid://cfp40r5a0ki3x" path="res://movable/movable.tscn" id="6_kjvva"]
 [ext_resource type="PackedScene" uid="uid://lw0jfdv6u2tw" path="res://sprites/water.tscn" id="6_wlen3"]
+[ext_resource type="Texture2D" uid="uid://cfqbs4iibgejb" path="res://sprites/FRdq8ZbPetwNDRV9R3hYpP-1200-80_jpg.png" id="7_seg4c"]
+[ext_resource type="PackedScene" uid="uid://dq132epqdmlp6" path="res://movable/generator_movable.tscn" id="8_7suhd"]
 
 [node name="test" type="Node2D"]
 
@@ -20,11 +22,17 @@ script = ExtResource("2_kjn43")
 
 [node name="Water" parent="Camera2D" instance=ExtResource("6_wlen3")]
 z_index = 10
-position = Vector2(-14, 321)
+position = Vector2(-2.00004, 276.5)
+scale = Vector2(0.634375, 0.634375)
 
 [node name="Timer" type="Timer" parent="Camera2D"]
 wait_time = 5.0
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+z_index = -10
+position = Vector2(0, 8)
+texture = ExtResource("7_seg4c")
 
 [node name="metal 1x4" parent="." instance=ExtResource("1_4jwmx")]
 position = Vector2(-2, 53)
@@ -33,6 +41,8 @@ position = Vector2(-2, 53)
 position = Vector2(422.377, -129.763)
 
 [node name="movable" parent="." instance=ExtResource("6_kjvva")]
-position = Vector2(-298, -73)
+position = Vector2(-315, -386)
+
+[node name="Generator2" parent="." instance=ExtResource("8_7suhd")]
 
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]

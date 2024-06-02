@@ -8,6 +8,12 @@ func _ready():
 @export var JUMP = 200
 
 @onready var mouse_point = $Point
+@onready var idle = $idle
+@onready var run = $run
+@onready var animation_player = $AnimationPlayer
+@onready var idlesprite = $idlesprite
+@onready var runrightsprite = $runrightsprite
+@onready var jumpsprite = $jumpsprite
 
 
 func _physics_process(delta):
@@ -17,16 +23,24 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -JUMP
-
+		
 	if Input.is_action_pressed("left"):
 		velocity.x = -WALK_SPEED
+		
 	elif Input.is_action_pressed("right"):
 		velocity.x =  WALK_SPEED
+		if is_on_floor():
+			runrightsprite.show()
+			animation_player.play("run_right")
+			idlesprite.hide()
 	else:
 		velocity.x = 0
+		if is_on_floor():
+			runrightsprite.hide()
+			idlesprite.show()
+			animation_player.play("idle")
+		
 	
-	
-
 	move_and_slide()
 	
 
