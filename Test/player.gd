@@ -7,6 +7,7 @@ func _ready():
 @export var GRAVITY = 300.0
 @export var WALK_SPEED = 200
 @export var JUMP = 200
+@onready var score = $"Score System/score"
 
 @onready var mouse_point = $Point
 @onready var animation_player = $AnimationPlayer
@@ -15,8 +16,24 @@ func _ready():
 @onready var jumpsprite = $jumpsprite
 @onready var runleftsprite = $runleftsprite
 @onready var death = $death
+@onready var score_val = 0
+@onready var add_to_score = false
+
+func add_score():
+	add_to_score = true
+	#score.text = str(int(score.text) + 500)
+	
+	#print(score)
+
+func keep_score():
+	#if add_to_score:
+		#score_val = 
+	score_val = -1*int(get_viewport().get_camera_2d().global_position.y)
+	score.text = str(score_val)
 
 func _physics_process(delta):
+	keep_score()
+	
 	mouse_point.global_position = get_global_mouse_position()
 	
 	velocity.y += delta * GRAVITY
