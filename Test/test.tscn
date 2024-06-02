@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://c2gvwjxc4p46c"]
+[gd_scene load_steps=54 format=3 uid="uid://c2gvwjxc4p46c"]
 
 [ext_resource type="PackedScene" uid="uid://fvlwl6mje6b1" path="res://static/metal_1x_4.tscn" id="1_4jwmx"]
 [ext_resource type="PackedScene" uid="uid://lp3h0cyulcxu" path="res://Test/player.tscn" id="2_avk5t"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7w2cjf7qf8bd" path="res://static/generator.tscn" id="5_slx1j"]
 [ext_resource type="PackedScene" uid="uid://cfp40r5a0ki3x" path="res://movable/movable.tscn" id="6_kjvva"]
 [ext_resource type="PackedScene" uid="uid://lw0jfdv6u2tw" path="res://sprites/water.tscn" id="6_wlen3"]
+[ext_resource type="AudioStream" uid="uid://bh4otgaiyffv" path="res://SFX/DeathSound.wav" id="7_6ncrj"]
 [ext_resource type="Texture2D" uid="uid://cfqbs4iibgejb" path="res://sprites/FRdq8ZbPetwNDRV9R3hYpP-1200-80_jpg.png" id="7_seg4c"]
 [ext_resource type="PackedScene" uid="uid://dq132epqdmlp6" path="res://movable/generator_movable.tscn" id="8_7suhd"]
 [ext_resource type="Texture2D" uid="uid://ckn5tyf5iir5i" path="res://sprites/Crane_Pale31_Frames.png" id="9_imf61"]
@@ -14,6 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://dlnnwpwfsg70s" path="res://screw/screw.tscn" id="12_3r4fy"]
 [ext_resource type="Script" path="res://Test/Score System.gd" id="13_l11q8"]
 [ext_resource type="PackedScene" uid="uid://cvll3fg66yf22" path="res://movable/generator4.tscn" id="14_au7j7"]
+[ext_resource type="Script" path="res://Test/Music.gd" id="15_27yf5"]
+[ext_resource type="AudioStream" uid="uid://bxnqymx5d33aw" path="res://Music/MusicFirst.wav" id="15_lgm6h"]
+[ext_resource type="AudioStream" uid="uid://bnaamcx8qxk0a" path="res://Music/MusicSecond.wav" id="18_pmqjx"]
+[ext_resource type="AudioStream" uid="uid://cphj6l25l7nn8" path="res://Music/MusicThird.wav" id="19_tx72l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2mkku"]
 font_size = 50
@@ -310,6 +315,9 @@ shape = SubResource("RectangleShape2D_0jwon")
 [node name="Timer" type="Timer" parent="Camera2D/killbox"]
 one_shot = true
 
+[node name="Death" type="AudioStreamPlayer2D" parent="Camera2D/killbox"]
+stream = ExtResource("7_6ncrj")
+
 [node name="metal 1x4" parent="." instance=ExtResource("1_4jwmx")]
 position = Vector2(-2, 126)
 
@@ -358,6 +366,24 @@ position = Vector2(614, -145)
 
 [node name="Gen4" parent="." instance=ExtResource("14_au7j7")]
 
+[node name="Music" type="Node2D" parent="."]
+script = ExtResource("15_27yf5")
+
+[node name="SpeedTimer" type="Timer" parent="Music"]
+wait_time = 60.0
+
+[node name="MusicFirst" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("15_lgm6h")
+volume_db = -11.954
+autoplay = true
+
+[node name="MusicSecond" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("18_pmqjx")
+
+[node name="MusicThird" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("19_tx72l")
+
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Camera2D/killbox/Timer" to="Camera2D/killbox" method="_on_timer_timeout"]
 [connection signal="timeout" from="Generator3/Timer" to="Generator3" method="_on_timer_timeout"]
+[connection signal="timeout" from="Music/SpeedTimer" to="Music" method="_on_speed_timer_timeout"]

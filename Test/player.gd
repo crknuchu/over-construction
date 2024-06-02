@@ -20,6 +20,7 @@ func _ready():
 @onready var add_to_score = false
 @onready var t = 5
 @onready var coyote_timer = $CoyoteTimer
+@onready var constr_02 = $Point/SFX/constr02
 
 var coyote_time = 0.1
 var can_jump = false

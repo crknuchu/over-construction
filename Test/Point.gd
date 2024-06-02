@@ -4,6 +4,7 @@ extends Area2D
 var carrying = false
 var picked_up_item = null
 var duplicate = null
+@onready var constr_02 = $SFX/constr02
 
 func _physics_process(_delta):
 	if duplicate != null:
@@ -20,6 +21,7 @@ func _physics_process(_delta):
 			picked_up_item.scaffold.show()
 			picked_up_item.scaffold.play()
 			get_viewport().get_camera_2d().apply_shake()
+			constr_02.play()
 	
 		for body in get_overlapping_bodies():
 			if body is Movable or body is Movable2:
