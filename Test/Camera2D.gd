@@ -43,3 +43,6 @@ func randomOffset():
 
 func _on_timer_timeout():
 	timer_started = true
+
+func _on_speed_timer_timeout():
+	camera_speed += 25

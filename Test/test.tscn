@@ -287,7 +287,7 @@ label_settings = SubResource("LabelSettings_2mkku")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="Player"]
+[node name="Jump" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("3_kmv3k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -374,20 +374,24 @@ position = Vector2(614, -145)
 script = ExtResource("15_27yf5")
 
 [node name="SpeedTimer" type="Timer" parent="Music"]
-wait_time = 60.0
+wait_time = 10.0
 
-[node name="MusicFirst" type="AudioStreamPlayer2D" parent="Music"]
+[node name="MusicFirst" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("15_lgm6h")
-volume_db = -11.954
+volume_db = -10.0
 autoplay = true
 
-[node name="MusicSecond" type="AudioStreamPlayer2D" parent="Music"]
+[node name="MusicSecond" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("18_pmqjx")
+volume_db = -10.0
 
-[node name="MusicThird" type="AudioStreamPlayer2D" parent="Music"]
+[node name="MusicThird" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("19_tx72l")
+volume_db = -10.0
 
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Camera2D/killbox/Timer" to="Camera2D/killbox" method="_on_timer_timeout"]
 [connection signal="timeout" from="Generator3/Timer" to="Generator3" method="_on_timer_timeout"]
+[connection signal="timeout" from="Music/SpeedTimer" to="Camera2D" method="_on_speed_timer_timeout"]
+[connection signal="timeout" from="Music/SpeedTimer" to="Generator2" method="_on_speed_timer_timeout"]
 [connection signal="timeout" from="Music/SpeedTimer" to="Music" method="_on_speed_timer_timeout"]

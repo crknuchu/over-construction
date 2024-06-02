@@ -250,6 +250,6 @@ scale = Vector2(0.3325, 0.3325)
 sprite_frames = SubResource("SpriteFrames_u87tu")
 frame_progress = 0.0691941
 
-[node name="SCREW" type="AudioStreamPlayer2D" parent="."]
+[node name="SCREW" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_xiogw")
 volume_db = 11.356

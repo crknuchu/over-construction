@@ -26,6 +26,10 @@ func _ready():
 	timer.start()
 	
 func _on_timer_timeout():
-	#print("AAAAA")
+	print("AAAAA")
 	spawn_block()
-	
+
+
+func _on_speed_timer_timeout():
+	timer.wait_time = 4
+	print(timer.wait_time)
