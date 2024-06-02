@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Openitgamejam 2024"
-run/main_scene="res://Test/test.tscn"
+run/main_scene="res://menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=900
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [input]
 

@@ -21,11 +21,14 @@ func _process(delta):
 			#print("BBBBB")
 			dead = true
 			death.play()
+			
 			await get_tree().create_timer(5).timeout
-			get_tree().quit()
+			#get_tree().quit()
+			get_tree().change_scene_to_file("res://menu/menu.tscn")
 
 
 func _on_timer_timeout():
 	print("GAME OVER")
 	#death.play()
-	get_tree().quit()
+	#get_tree().quit()
+	
