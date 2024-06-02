@@ -5,6 +5,5 @@ extends StaticBody2D
 @onready var items = [metal_1x4]
 
 
-
 func _physics_process(delta):
 	global_position.y += speed * delta
