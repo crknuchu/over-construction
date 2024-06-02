@@ -5,11 +5,23 @@ extends Camera2D
 @onready var player = $"../Player"
 @onready var timer = $Timer
 var timer_started = false
+@export var randomstrength = 30.0
+@export var shakefade = 5.0
+
+var rng = RandomNumberGenerator.new()
+
+var shake_strength = 0.0
 
 func _ready():
 	timer.start()
 
 func _process(delta):
+	#if Input.is_action_just_pressed("left_click"):
+		#apply_shake()
+	if shake_strength>0:
+		shake_strength = lerpf(shake_strength,0,shakefade*delta)
+	offset = randomOffset()
+	
 	if timer_started:
 		global_position.y -= camera_speed * delta
 		#print(player.global_position)
@@ -23,6 +35,11 @@ func _process(delta):
 			#print("AAAA")
 			global_position.y -= camera_edge_speed * delta
 
+func apply_shake():
+	shake_strength = randomstrength
+
+func randomOffset():
+	return Vector2(rng.randf_range(-shake_strength,shake_strength),rng.randf_range(-shake_strength,shake_strength))
 
 func _on_timer_timeout():
 	timer_started = true

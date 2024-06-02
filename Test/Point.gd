@@ -19,6 +19,7 @@ func _physics_process(_delta):
 			duplicate.queue_free()
 			picked_up_item.scaffold.show()
 			picked_up_item.scaffold.play()
+			get_viewport().get_camera_2d().apply_shake()
 	
 		for body in get_overlapping_bodies():
 			if body is Movable or body is Movable2:

@@ -283,6 +283,7 @@ vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_kjn43")
+randomstrength = 10.0
 
 [node name="Water" parent="Camera2D" instance=ExtResource("6_wlen3")]
 z_index = 10
