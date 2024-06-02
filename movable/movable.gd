@@ -7,6 +7,7 @@ var picked_up = false
 @onready var sprite_2d = $Sprite2D
 @onready var box = $Box
 @onready var scaffold = $scaffold
+@onready var boxcollision = $boxcollision
 
 func _physics_process(delta):
 	if not picked_up:

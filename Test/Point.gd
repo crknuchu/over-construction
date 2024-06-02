@@ -26,8 +26,9 @@ func _physics_process(_delta):
 					carrying = true
 					picked_up_item = body
 					picked_up_item.picked_up = true
-					picked_up_item.collision.disabled = true
+					picked_up_item.boxcollision.disabled = true
 					picked_up_item.global_position = player.global_position
+					#picked_up_item.global_position.x = lerp(picked_up_item.global_position.x,player.global_position.x, 1)
 					picked_up_item.reparent(player)
 					duplicate = picked_up_item.duplicate()
 					player.get_parent().add_child(duplicate)
